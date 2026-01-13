@@ -66,7 +66,3 @@ src/
 ├── types/        # TypeScript definitions
 └── App.tsx       # Main application component & Routing
 ```
-
-## License
-
-MIT
