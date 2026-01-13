@@ -15,16 +15,6 @@ export const fetchEvents = async (
   search: string = "",
   petsAllowedOnly: boolean = false
 ): Promise<EventsResponse> => {
-  // 1. We'll fetch all and filter/paginate client side because 
-  // my-json-server's total count header (X-Total-Count) might be missing or tricky with CORS in some cases,
-  // and for search + pagination + filtering combination it can be limited.
-  // HOWEVER, the prompt asked to use react-query for API consumption.
-  // Let's try to use the server params where possible, but for a 6-item DB, 
-  // fetching all is safer and faster and guarantees correct total counts for pagination UI.
-  
-  // Actually, let's fetch ALL items first, then filter client side.
-  // This ensures we get accurate "total" counts for pagination which is crucial for the UI.
-  // Given the dataset is "showcase" size (likely small), this is performant.
   
   const response = await fetch(API_URL);
   if (!response.ok) {
